@@ -17,4 +17,15 @@ describe('/GET', () => {
                 done();
             });
     });
+
+    it('returns the status from /ping', (done) => {
+        chai.request(`http://localhost:${config.port}`)
+            .get('/ping')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('status').eql('ok');
+                done();
+            });
+    });
 });

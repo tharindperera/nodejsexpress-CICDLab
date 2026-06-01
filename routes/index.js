@@ -8,4 +8,9 @@ router.get('/', (req, res) => {
   });
 });
 
+/* GET ping endpoint. */
+router.get('/ping', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
 module.exports = router;
